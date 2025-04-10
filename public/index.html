@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat bot Gemini</title>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        /* Estilos básicos (opcional) */
+        #chatbox { height: 300px; border: 1px solid #ccc; overflow-y: scroll; margin-bottom: 10px; padding: 5px; }
+        .user-message { text-align: right; color: blue; }
+        .bot-message { text-align: left; color: green; }
+        
+        footer{
+            background-color: black;
+            color: #fff;
+            padding: 10px;
+            text-align: right;
+            bottom: 0;
+        }
+        h1{
+            text-align: center;
+        }
+        button{
+            background-color: greenyellow;
+        }
+    </style>
+</head>
+<body>
+    <h1>Chat-bot</h1>
+
+    <div id="chatbox">
+        <!-- Mensagens aparecerão aqui -->
+    </div>
+
+    <input type="text" id="userInput" placeholder="Digite sua mensagem...">
+    <button id="sendButton">Enviar</button>
+
+    <footer>Todos os direitos reservados</footer>
+
+    <!-- Inclua o script do cliente, NÃO o index.js original -->
+    <script src="chat-client.js"></script>
+</body>
+</html>
