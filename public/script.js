@@ -21,7 +21,7 @@ function showTypingIndicator(show = true) {
     if (show) {
         const typingDiv = document.createElement('div');
         typingDiv.classList.add('message', 'bot-message', 'typing-indicator');
-        typingDiv.textContent = 'Digitando...';
+        typingDiv.textContent = 'Meditando...';
         typingDiv.id = 'typing';
         chatBox.appendChild(typingDiv);
         chatBox.scrollTop = chatBox.scrollHeight;

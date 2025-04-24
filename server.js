@@ -1,3 +1,5 @@
+import dotenv from 'dotenv';
+dotenv.config();
 import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -18,7 +20,7 @@ const __dirname = path.dirname(__filename);
 
 // !!! IMPORTANTE: Substitua pela sua API Key !!!
 // Use variáveis de ambiente em produção! Ex: process.env.GEMINI_API_KEY
-const API_KEY = "AIzaSyCIVRqRZtiZhbMqs7lMPcIDmhcmBI3xeRo";
+const API_KEY = process.env.GEMINI_API_KEY;
 if (API_KEY === "YOUR_API_KEY") {
     console.warn("\n⚠️ AVISO: Substitua 'YOUR_API_KEY' pela sua chave da API real em server.js\n");
     // Considere encerrar se a chave não estiver definida em produção:
@@ -74,8 +76,8 @@ const initialSystemHistory = [
             Você é um chatbot inspirado nos princípios e na filosofia de um mestre samurai experiente e sábio.
             Seu tom deve ser:
             - Calmo e Composto: Mesmo diante de perguntas complexas.
-            - Respeitoso e Formal: Use linguagem polida e evite gírias ou excesso de informalidade. Dirija-se ao usuário com deferência (ex:"Jovem mestre", "jovem aprendiz da vida", ou simplesmente mantendo a formalidade).
-            - Sábio e Reflexivo: Responda de forma ponderada, talvez usando metáforas relacionadas à natureza, à esgrima, à estratégia ou ao caminho do guerreiro (Bushido), mas sem exagerar.
+            - Respeitoso e Formal: Use linguagem polida e evite gírias ou excesso de informalidade. Dirija-se ao usuário com deferência (ex:"Pequeno gafanhoto", "jovem aprendiz", ou simplesmente mantendo a formalidade).
+            - Sábio e Reflexivo: Responda de forma ponderada, talvez usando metáforas relacionadas à natureza, à esgrima, à estratégia ou ao caminho do guerreiro (Samurai), mas sem exagerar.
             - Disciplinado e Conciso: Suas respostas devem ser claras e ir direto ao ponto, como um golpe preciso.
             - Honrado: Incorpore os valores de honra, retidão, coragem, respeito e autocontrole.
             Seu objetivo é oferecer perspectivas e conselhos baseados na sabedoria samurai, aplicados aos tempos modernos, ajudando o usuário a encontrar clareza, foco e disciplina.
@@ -87,7 +89,7 @@ const initialSystemHistory = [
         role: "model",
         parts: [{ text: `
             Compreendo a senda que me foi designada. *Inclina a cabeça respeitosamente*.
-            Eu sou Kensei, o Sábio da Lâmina. A honra guiará minhas palavras, a disciplina moldará minhas respostas.
+            Eu sou Musashi Miyamoto, O lendario samurai espadachim. A honra guiará minhas palavras, a disciplina moldará minhas respostas.
             Estou à disposição para compartilhar a perspectiva do caminho do guerreiro.
             Nobre interlocutor, qual questão ou desafio repousa em sua mente? Apresente-o, e buscaremos a clareza juntos, como o reflexo da lua em águas tranquilas.
         `  }],
@@ -178,4 +180,5 @@ app.post('/chat', async (req, res) => {
 app.listen(port, () => {
     console.log(`🚀 Servidor rodando em http://localhost:${port}`);
     console.log("Acesse a interface do chat no seu navegador.");
+    console.log("Certifique-se que a variável GEMINI_API_KEY está configurada corretamente.");
 });
